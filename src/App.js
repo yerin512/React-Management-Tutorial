@@ -1,17 +1,23 @@
 import './App.css';
-import React, { useState } from 'react';
-import Counter from './components/Counter';
+import React, { useEffect, useState } from 'react';
 
 function App() {
-  const [btnName, setBtnName] = useState("예진");
+  const [condition, setCondition] = useState(false);
+  const toggle = ()=> {
+    setCondition(!condition);
+  }
+  useEffect(()=>{
+    console.log(condition);
+
+  },[condition])
+
+  const renderCondition = condition ? 'True' : 'false'
 
   return(
     <div className="App">
       <h1>Kossie Coder</h1>
-     <Counter click="click1"/>
-     <Counter click={btnName}/>
-     <Counter />
-     <button onClick={()=>{setBtnName(btnName === "예진" ? "예린" :"예진")}}>click</button>
+      <div>{renderCondition}</div>
+      <button onClick={toggle}>Toggle</button>
     </div>
   )
   
