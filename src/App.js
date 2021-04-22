@@ -1,21 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+
 
 function App() {
-
-  const onSubmit = ()=> alert('hello');
-  const onKeyUp = (event) => {
-    if(event.keyCode === 13){
-      onSubmit();
-    }
-  };
+  const [name, setName] = useState('yerin');
 
   return (
     <div className="App">
-      <input onKeyUp={onKeyUp} />
-      <button onClick={onSubmit}>
-        Submit
-      </button>
+
+      <button onClick={() => {
+        setName(name === "yerin" ? "Ahn" : "yerin")}}>Chane Name</button>
+      <span>{name}</span>
+    
     </div>
   );
 }
