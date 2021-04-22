@@ -1,20 +1,17 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Counter from './components/Counter';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  }
+  const [btnName, setBtnName] = useState("예진");
 
   return(
     <div className="App">
       <h1>Kossie Coder</h1>
+     <Counter click="click1"/>
+     <Counter click={btnName}/>
      <Counter />
-     <Counter />
-     <Counter />
+     <button onClick={()=>{setBtnName(btnName === "예진" ? "예린" :"예진")}}>click</button>
     </div>
   )
   
