@@ -1,31 +1,32 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 function App() {
-  const onSubmit = (event)=> {
-    event.preventDefault();
-    console.log(userName, password);
-  };
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  return (
-   <form onSubmit={onSubmit}>
+  const [count, setCount] = useState(0);
+  const [kossie, setKossie] = useState(0);
+
+  useEffect(()=>{
+    console.log(count);
+  }, [count, kossie])
+
+  useEffect(() => {
+    console.log('first rendering')
+  }, []);
+
+
+  const increment = () => {
+    setCount(count + 1);
+  }
+
+  return(
     <div className="App">
-      <input 
-      placeholder="Username"
-      value={userName}
-      onChange={(e)=>setUserName(e.target.value)}
-      /><br />
-      <input 
-      placeholder ="Password"
-      value={password}
-      onChange={(e)=>setPassword(e.target.value)}
-      /><br />
-      <button type="submit">Login</button>
+      <h1>Kossie Coder</h1>
+      <button onClick={increment}>Click</button>
+      <button onClick={()=> setKossie(kossie+1)}>Click2</button>
     </div>
-    </form>  
-  );
+  )
+  
 }
 
 export default App;
