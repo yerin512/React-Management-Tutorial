@@ -3,6 +3,7 @@ import Movie from './components/Movie'
 import React, { useState } from 'react';
 import MovieForm from './components/MovieForm';
 import Navbar from './components/Navbar'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -33,12 +34,17 @@ function App() {
     
   };
   return(
+    <Router>
       <div className="App">
         <Navbar />
+        <Route path="/"></Route>
+        <Route path="/movies"></Route>
+        <Route path="/users"></Route>
         <h1>Movie List</h1>
         <MovieForm addMovie={addMovie}/>
          {renderMovies}
       </div>
+    </Router>  
   )
 }
 
