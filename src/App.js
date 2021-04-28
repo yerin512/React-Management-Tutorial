@@ -1,9 +1,11 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Movie from './components/Movie'
+import Movie from './components/Movie';
+import Users from './components/pages/Users'
 import React, { useState } from 'react';
 import MovieForm from './components/MovieForm';
 import Navbar from './components/Navbar'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -44,7 +46,7 @@ function App() {
             {renderMovies}
           </Route>
           <Route path="/users">
-            <h1>Users</h1>
+            <Users />
           </Route>
           <Route path="/" exact>
             <h1>Home</h1>
