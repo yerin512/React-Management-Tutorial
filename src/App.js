@@ -39,6 +39,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <div className="container">
         <Switch>
           <Route path="/movies">
             <h1>Movie List</h1>
@@ -52,6 +53,7 @@ function App() {
             <h1>Home</h1>
           </Route>
         </Switch>
+        </div>
       </div>
     </Router>
   )
